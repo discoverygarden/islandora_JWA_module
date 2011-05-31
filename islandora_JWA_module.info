@@ -1,0 +1,6 @@
+; $Id$
+name = Islandora JWA Module
+dependencies[] = fedora_repository
+description = Contains the JWA forms and content models for islandora
+package = Fedora Repository
+core = 6.x
