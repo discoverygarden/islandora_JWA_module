@@ -42,6 +42,7 @@ ENDJS;
     drupal_add_js($js_string, 'inline', 'header');
 
     $tabset['first_tab'] = array(
+      '#weight' => -1,
       '#type' => 'tabpage',
       '#title' => t('Listen'),
       '#content' => $content,

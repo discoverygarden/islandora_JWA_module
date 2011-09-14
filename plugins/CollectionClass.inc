@@ -20,7 +20,7 @@ class JWACollectionClass extends CollectionClass {
 
     $base_path = base_path();
     $path = $base_path . drupal_get_path('module','fedora_repository');
-    $collection_items = "<a href='$base_path/formbuilder/ingest/$this->pid'><img alt='ingest' src='$path/images/48px-Crystal_Clear_app_download_manager.png'/>Add<p></a>";
+    $collection_items = "<a href='$base_url/formbuilder/ingest/$this->pid'><img alt='ingest' src='$path/images/48px-Crystal_Clear_app_download_manager.png'/>Add<p></a>";
     $collection_items .= $this->renderCollection($results, $this->pid, NULL, NULL, $page_number);
     $collection_item = new Fedora_Item($this->pid);
 
@@ -31,8 +31,20 @@ class JWACollectionClass extends CollectionClass {
     $tabset['view_tab'] = array(
       '#type' => 'tabpage',
       '#title' => 'View',
+      '#weight' => -2,
+      '#selcted' => !$show_ingest_tab,
       '#content' => $collection_items
     );
+
+    //$tabset['add_tab'] = array(
+      // #type and #title are the minimum requirements.
+    //  '#type' => 'tabpage',
+    //  '#title' => t('Add Object'),
+    //  '#selected' => $show_ingest_tab,
+    //  // This will be the content of the tab.
+    //  '#content' => drupal_get_form('islandora_form_builder_ingest_form', $this->pid),
+    //  //'#ajax_url' => url('formbuilder/ingest/jwa:top'),
+    //);
     
     return $tabset;
   }
