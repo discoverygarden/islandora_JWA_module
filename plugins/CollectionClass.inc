@@ -20,7 +20,9 @@ class JWACollectionClass extends CollectionClass {
 
     $base_path = base_path();
     $path = $base_path . drupal_get_path('module','fedora_repository');
-    $collection_items = "<a href='$base_url/formbuilder/ingest/$this->pid'><img alt='ingest' src='$path/images/48px-Crystal_Clear_app_download_manager.png'/>Add<p></a>";
+    if (user_access('add fedora datastreams')) {
+      $collection_items = "<a href='$base_url/formbuilder/ingest/$this->pid'><img alt='ingest' src='$path/images/48px-Crystal_Clear_app_download_manager.png'/>Add<p></a>";
+    }
     $collection_items .= $this->renderCollection($results, $this->pid, NULL, NULL, $page_number);
     $collection_item = new Fedora_Item($this->pid);
 
