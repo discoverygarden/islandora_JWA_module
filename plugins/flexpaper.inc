@@ -49,7 +49,6 @@ class ShowFlexpaper {
               PrintEnabled : true,
               FullScreenAsMaxWindow : false,
               ProgressiveLoading : true,
-
               PrintToolsVisible : true,
               ViewModeToolsVisible : true,
               ZoomToolsVisible : true,
