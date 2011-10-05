@@ -20,9 +20,17 @@ class JWACollectionClass extends CollectionClass {
 
     $base_path = base_path();
     $path = $base_path . drupal_get_path('module','fedora_repository');
+
+    // make the custom add stuff appear
     if (user_access('add fedora datastreams')) {
-      $collection_items = "<a href='$base_url/formbuilder/ingest/$this->pid'><img alt='ingest' src='$path/images/48px-Crystal_Clear_app_download_manager.png'/>Add<p></a>";
+      $collection_items = '';
+      $collection_items .= '<table><tr><td>';
+      $collection_items .= "<a href='$base_url/formbuilder/ingest/$this->pid'><img alt='ingest' src='$path/images/48px-Crystal_Clear_app_download_manager.png'/>Add Item<p></a>";
+      $collection_items .= '</td><td>';
+      $collection_items .= "<a href='$base_url/fedora/repository/create_collection/$this->pid'><img alt='Add Collection' src='$path/images/48px-Crystal_Clear_app_download_manager.png'/>Add Collection<p></a>";
+      $collection_items .= '</td></tr></table>';
     }
+
     $collection_items .= $this->renderCollection($results, $this->pid, NULL, NULL, $page_number);
     $collection_item = new Fedora_Item($this->pid);
 

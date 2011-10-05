@@ -30,13 +30,14 @@ var swfVersionStr = "10.0.0";
 var flashvars = {
       'playlistfile':   escape("$playlist"),
       'playlist.position':      'right',
-      'playlist.size':  '115',
+      'playlist.size':  '175',
+      'playlist.thumbs': 'false',
        repeat: "list",
    };
 var params = { allowfullscreen:'false', allowscriptaccess:'false' };
 var attributes = { id:'AudioViewer', name:'AudioViewer' };
 
-swfobject.embedSWF('$fullpath/jwplayer/player.swf','flashContent','400','200','9.0.115','false',flashvars, params, attributes);
+swfobject.embedSWF('$fullpath/jwplayer/player.swf','flashContent','550','300','9.0.115','false',flashvars, params, attributes);
 swfobject.createCSS("#flashContent", "display:block;text-align:left;");
 ENDJS;
     drupal_add_js($js_string, 'inline', 'header');
